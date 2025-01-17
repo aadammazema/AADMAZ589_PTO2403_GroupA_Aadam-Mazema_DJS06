@@ -70,3 +70,19 @@ console.log({
   // 4. Concatenate Product Names: Use reduce to concatenate all product names into a single string.
   concatenatedNames: products.reduce((acc, item) => acc + item.product, ''),
 
+  // 5. Find Extremes in Prices: Identify the highest and lowest-priced items, 
+  // returning a string formatted as "Highest: X. Lowest: Y."
+  extremesInPrices: (() => {
+    const validPrices = products
+      .filter(item => typeof item.price === 'string' ? item.price.trim() !== '' : item.price !== '')
+      .map(item => ({
+        product: item.product,
+        price: typeof item.price === 'string' ? Number(item.price.trim()) : item.price
+      }));
+      
+    const highest = validPrices.reduce((max, item) => item.price > max.price ? item : max, validPrices[0]);
+    const lowest = validPrices.reduce((min, item) => item.price < min.price ? item : min, validPrices[0]);
+
+    return `Highest: ${highest.product} - ${highest.price}. Lowest: ${lowest.product} - ${lowest.price}.`;
+  })(),
+
