@@ -34,3 +34,7 @@ console.log(nameLengths);
 const sortedProvinces = provinces.slice().sort();  // Using slice to avoid mutating the original array
 console.log(sortedProvinces);
 
+// 5. Filtering Cape: Filter out provinces containing "Cape" and log the count of remaining provinces.
+const filteredProvinces = provinces.filter(province => !province.includes('Cape'));
+console.log(filteredProvinces.length);
+
