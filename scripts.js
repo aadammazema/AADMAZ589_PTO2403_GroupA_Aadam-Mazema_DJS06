@@ -42,3 +42,10 @@ console.log(filteredProvinces.length);
 const containsS = names.map(name => name.includes('S')).some(result => result === true);
 console.log(containsS);
 
+// 7. Creating Object Mapping: Use reduce to map names to provinces.
+const nameProvinceMapping = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+console.log(nameProvinceMapping);
+
