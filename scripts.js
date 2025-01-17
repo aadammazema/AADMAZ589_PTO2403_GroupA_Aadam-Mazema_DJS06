@@ -38,3 +38,7 @@ console.log(sortedProvinces);
 const filteredProvinces = provinces.filter(province => !province.includes('Cape'));
 console.log(filteredProvinces.length);
 
+// 6. Finding 'S': Create a boolean array with map and some to check if each name contains 'S'.
+const containsS = names.map(name => name.includes('S')).some(result => result === true);
+console.log(containsS);
+
