@@ -60,3 +60,10 @@ console.log({
   // 2. Filter by Name Length: Filter out products with names longer than 5 characters.
   shortNamedProducts: products.filter(item => item.product.length <= 5),
 
+  // 3. Price Manipulation: Filter out products without prices, convert string prices to numbers, 
+  // and calculate the total price using reduce.
+  totalPrice: products
+    .filter(item => typeof item.price === 'string' ? item.price.trim() !== '' : item.price !== '') // Filter out items with empty prices
+    .map(item => ({ ...item, price: typeof item.price === 'string' ? Number(item.price.trim()) : item.price })) // Convert price to number
+    .reduce((acc, item) => acc + item.price, 0), // Sum up the prices
+
