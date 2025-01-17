@@ -86,3 +86,10 @@ console.log({
     return `Highest: ${highest.product} - ${highest.price}. Lowest: ${lowest.product} - ${lowest.price}.`;
   })(),
 
+  // 6. Object Transformation: Using Object.entries and reduce, recreate the products object 
+  // with keys 'name' and 'cost', maintaining their original values.
+  transformedProducts: products.map(item => ({
+    name: item.product,
+    cost: typeof item.price === 'string' ? (item.price.trim() !== '' ? Number(item.price.trim()) : item.price) : item.price
+  }))
+});
