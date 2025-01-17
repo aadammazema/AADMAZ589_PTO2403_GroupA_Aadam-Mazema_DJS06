@@ -67,3 +67,6 @@ console.log({
     .map(item => ({ ...item, price: typeof item.price === 'string' ? Number(item.price.trim()) : item.price })) // Convert price to number
     .reduce((acc, item) => acc + item.price, 0), // Sum up the prices
 
+  // 4. Concatenate Product Names: Use reduce to concatenate all product names into a single string.
+  concatenatedNames: products.reduce((acc, item) => acc + item.product, ''),
+
